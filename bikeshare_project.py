@@ -86,14 +86,14 @@ def load_data(city, month, day):
     	# filter by month to create the new dataframe
         df = df[df['month'] == month]
 
-        # filter by day of week if applicable
+        # filter by weekday if applicable
     if day != 'all':
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
 
     return df
-    
-    
+
+
 def time_stats(df):
     """Displays statistics on the most frequent times of travel."""
 
@@ -103,11 +103,11 @@ def time_stats(df):
     # TO DO: display the most common month
     popular_month = df['month'].mode()[0]
     print('Most Common Month:', popular_month)
-    
+
     # TO DO: display the most common day of week
     popular_day = df['day_of_week'].mode()[0]
     print('Most Common day:', popular_day)
-    
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     popular_hour = df['hour'].mode()[0]
@@ -126,16 +126,16 @@ def station_stats(df):
     # TO DO: display most commonly used start station
     start_station = df['Start Station'].value_counts().idxmax()
     print('Most Commonly used start station:', start_station)
-    
+
     # TO DO: display most commonly used end station
     end_station = df['End Station'].value_counts().idxmax()
     print('\nMost Commonly used end station:', end_station)
-    
+
     # TO DO: display most frequent combination of start station and end station trip
     most_common_start_end_station = df[['Start Station', 'End Station']].mode().loc[0]
     print("The most commonly used start station and end station are: {}, {}"\
             .format(most_common_start_end_station[0], most_common_start_end_station[1]))
-    
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -165,7 +165,7 @@ def user_stats(df):
 
     # TO DO: Display counts of user types
     user_types = df['User Type'].value_counts()
-    
+
     # print(user_types)
     print('User Types:\n', user_types)
 
@@ -175,7 +175,7 @@ def user_stats(df):
         print('\nEarliest Year:', earliest_year)
     except KeyError:
         print("\nEarliest Year:\nNo data available for this month.")
-        
+
     # TO DO: Display earliest, most recent, and most common year of birth
     try:
         most_common_year = df['Birth Year'].value_counts().idxmax()
@@ -185,7 +185,7 @@ def user_stats(df):
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def display_data(df):
     while True:
         response=['yes','no']
@@ -196,10 +196,10 @@ def display_data(df):
                 end=5
                 data = df.iloc[start:end,:9]
                 print(data)
-            break     
+            break
         else:
             print("Please enter a valid response")
-    if  view_data=='yes':       
+    if  view_data=='yes':
             while True:
                 view_data_2= input("Would you like to view more trip data? Type 'yes' or 'no'\n").lower()
                 if view_data_2 in response:
@@ -208,16 +208,16 @@ def display_data(df):
                         end+=5
                         data = df.iloc[start:end,:9]
                         print(data)
-                    else:    
-                        break  
+                    else:
+                        break
                 else:
-                    print("Please enter a valid response")              
+                    print("Please enter a valid response")
 
 def main():
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
-        
+
         time_stats(df)
         station_stats(df)
         trip_duration_stats(df)
