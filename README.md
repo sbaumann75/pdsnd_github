@@ -13,5 +13,5 @@ This code helps to explore data related to bike share systems in New York City, 
 bikeshare_project.py, chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
-Udacity and Divvy
+Udacity & Divvy
 
