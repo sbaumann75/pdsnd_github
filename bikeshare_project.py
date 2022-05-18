@@ -40,12 +40,12 @@ def get_filters():
       else:
         break
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ...)
+    # TO DO: get user input for day of week (monday, tuesday, ...)
 
     while True:
-      day = input("\nEnter the day: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or simply type 'all'.\n")
+      day = input("\nEnter the day: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.\n")
       day = day.title()
-      if day not in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'all'):
+      if day not in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'):
         print("Choice not found. Please try again.")
         continue
       else:
