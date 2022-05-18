@@ -7,11 +7,10 @@ April 27, 2022
 bikeshare_project
 
 ### Description
-This code helps to explore data related to bike share systems in New York City, Chicago and Washington
+This code helps exploring data related to bike share systems in New York City, Chicago and Washington
 
 ### Files used
 bikeshare_project.py, chicago.csv, new_york_city.csv, washington.csv
 
 ### Credits
 Udacity & Divvy
-
