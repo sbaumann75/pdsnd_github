@@ -29,23 +29,23 @@ def get_filters():
       else:
         break
 
-    # TO DO: get user input for month (all, january, february, ... , june)
+    # TO DO: get user input for month (all, february, ... , june)
 
     while True:
-      month = input("\nEnter one of the provided month options: January, February, March, April, May, June or simply type 'all'.\n")
+      month = input("\nEnter one of the provided month options: February, March, April, May, June or simply type 'all'.\n")
       month = month.title()
-      if month not in ('January', 'February', 'March', 'April', 'May', 'June', 'All'):
+      if month not in ('February', 'March', 'April', 'May', 'June', 'All'):
         print("Choice not found. Please try again.")
         continue
       else:
         break
 
-    # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
+    # TO DO: get user input for day of week (monday, tuesday, ...)
 
     while True:
-      day = input("\nEnter the day: Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday or simply type 'all'.\n")
+      day = input("\nEnter the day: Monday, Tuesday, Wednesday, Thursday, Friday, Saturday.\n")
       day = day.title()
-      if day not in ('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'all'):
+      if day not in ('Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'):
         print("Choice not found. Please try again.")
         continue
       else:
@@ -80,7 +80,7 @@ def load_data(city, month, day):
     # filter by month if applicable
     if month != 'all':
    	 	# use the index of the months list to get the corresponding int
-        months = ['January', 'February', 'March', 'April', 'May', 'June']
+        months = ['February', 'March', 'April', 'May', 'June']
         month = months.index(month) + 1
 
     	# filter by month to create the new dataframe
